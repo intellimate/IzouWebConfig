@@ -1,4 +1,4 @@
-package org.intellimate.izou.exampleaddon;
+package org.intellimate.izou.addon.izouwebconfig;
 
 import org.intellimate.izou.activator.ActivatorModel;
 import org.intellimate.izou.events.EventsControllerModel;
@@ -8,21 +8,23 @@ import org.intellimate.izou.sdk.addon.AddOn;
 import org.intellimate.izou.sdk.contentgenerator.ContentGenerator;
 import ro.fortsoft.pf4j.Extension;
 
+import java.io.File;
+
 /**
  * Example addOn for Izou, PLEASE DELETE THIS PACKAGE ON FINAL DISTRIBUTION. It is only meant as a model for
  * how addOns are structured. It is not meant to be included in the final addOn. 
  */
 @Extension
-public class ExampleAddOn extends AddOn {
-    /*
-    ID consists of package_name.class_name
+public class WebConfigAddOn extends AddOn {
+    /**
+     * The ID of the WebConfigAddOn
      */
-    private static final String ID = ExampleAddOn.class.getCanonicalName();
+    private static final String ID = WebConfigAddOn.class.getCanonicalName();
 
     /**
      * The default constructor for AddOns
      */
-    public ExampleAddOn() {
+    public WebConfigAddOn() {
         super(ID);
     }
 
@@ -31,7 +33,9 @@ public class ExampleAddOn extends AddOn {
      */
     @Override
     public void prepare() {
-
+        WebServer.HOST_PATH = getContext().getFiles().getLibLocation() +
+                getContext().getAddOn().getPlugin().getPluginPath() + File.separator + "classes" + File.separator
+                + "html" + File.separator;
     }
 
     /**
@@ -42,7 +46,7 @@ public class ExampleAddOn extends AddOn {
     @Override
     public ActivatorModel[] registerActivator() {
         ActivatorModel[] activators = new ActivatorModel[1];
-        activators[0] = new ExampleActivator(getContext());
+        activators[0] = new WebConfigActivator(getContext());
         return activators;
     }
 
@@ -53,10 +57,7 @@ public class ExampleAddOn extends AddOn {
      */
     @Override
     public ContentGenerator[] registerContentGenerator() {
-        ContentGenerator[] contentGenerators = new ContentGenerator[2];
-        contentGenerators[0] = new ExampleContentGenerator(getContext());
-        contentGenerators[1] = new ExampleContentGeneratorResource(getContext());
-        return contentGenerators;
+        return null;
     }
 
     /**
@@ -76,9 +77,7 @@ public class ExampleAddOn extends AddOn {
      */
     @Override
     public OutputPluginModel[] registerOutputPlugin() {
-        OutputPluginModel[] outputPlugins = new OutputPluginModel[1];
-        outputPlugins[0] = new ExampleOutputPlugin(getContext());
-        return outputPlugins;
+        return null;
     }
 
     /**
@@ -88,8 +87,6 @@ public class ExampleAddOn extends AddOn {
      */
     @Override
     public OutputExtensionModel[] registerOutputExtension() {
-        OutputExtensionModel[] outputExtensions = new OutputExtensionModel[1];
-        outputExtensions[0] = new ExampleOutputExtension(getContext());
-        return outputExtensions;
+       return null;
     }
 }

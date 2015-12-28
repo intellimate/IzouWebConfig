@@ -4,6 +4,12 @@
 .idea
 build
 target
+lib
+logs
+/properties
+/resources
+/system
+
 
 # ---------------
 # Project Files

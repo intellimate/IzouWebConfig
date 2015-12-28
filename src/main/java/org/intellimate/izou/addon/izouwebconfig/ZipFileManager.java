@@ -1,4 +1,4 @@
-package org.intellimate.izou.exampleaddon;
+package org.intellimate.izou.addon.izouwebconfig;
 
 import ro.fortsoft.pf4j.PluginWrapper;
 
