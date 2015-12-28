@@ -13,7 +13,7 @@ import java.util.Map;
  * This class starts the webserver
  */
 public class WebServer extends SimpleWebServer {
-    public static final String HOSTNAME = "192.168.1.6";
+    public static final String HOSTNAME = "192.168.1.15";
     public static final int PORT = 7777;
     public static String HOST_PATH;
     private static String HOST_DEV_PATH = "./src/main/resources/html/";
@@ -26,7 +26,7 @@ public class WebServer extends SimpleWebServer {
      * @param context the context of the addOn
      */
     public WebServer(Context context) {
-        super(HOSTNAME, PORT, new File(HOST_PATH), false);
+        super(HOSTNAME, PORT, new File(HOST_DEV_PATH), false);
 
         this.context = context;
 
