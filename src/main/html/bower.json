@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": false,
   "dependencies": {
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6",
+    "shim": "*",
+    "respond": "~1.4.2",
+    "morris.js": "~0.5.1"
   }
 }
