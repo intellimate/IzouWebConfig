@@ -3,9 +3,9 @@
 # ---------------
 .idea
 build
-target
-lib
-logs
+/target
+/lib
+/logs
 /properties
 /resources
 /system
