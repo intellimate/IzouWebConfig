@@ -1,4 +1,4 @@
-package org.intellimate.izou.addon.izouwebconfig;
+package org.intellimate.izou.addon.izouwebconfig.webserver;
 
 import fi.iki.elonen.NanoHTTPD;
 import fi.iki.elonen.SimpleWebServer;
@@ -18,6 +18,7 @@ public class WebServer extends SimpleWebServer {
     public static String HOST_PATH;
     private static String HOST_DEV_PATH = "./src/main/resources/html/";
 
+    private HashMap<String, RequestHandler> requestHandlers;
     private Context context;
 
     /**
@@ -29,6 +30,10 @@ public class WebServer extends SimpleWebServer {
         super(HOSTNAME, PORT, new File(HOST_DEV_PATH), false);
 
         this.context = context;
+
+        requestHandlers = new HashMap<>();
+        TestHandler testHandler = new TestHandler();
+        requestHandlers.put(testHandler.getClassName(), testHandler);
 
         try {
             start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
@@ -48,6 +53,7 @@ public class WebServer extends SimpleWebServer {
         Method method = session.getMethod();
 
         if (Method.POST.equals(method)) {
+            // Get parameters of request
             Map<String, String> params = new HashMap<>();
             try {
                 session.parseBody(params);
@@ -55,12 +61,38 @@ public class WebServer extends SimpleWebServer {
                 e.printStackTrace();
             }
 
-            params = session.getParms();
+            // Delegate request to correct class
+            String requestHandlerName = session.getUri();
+            requestHandlerName = requestHandlerName.substring(1);
+            RequestHandler requestHandler = requestHandlers.get(requestHandlerName);
 
-            if (params.get("answer").equals("yes")) {
-                return newFixedLengthResponse(Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, "success");
+            // If the request handler was specified, do the default stuff
+            if (requestHandler != null) {
+                return requestHandler.POST(session);
             } else {
-                return newFixedLengthResponse(Response.Status.UNAUTHORIZED, NanoHTTPD.MIME_PLAINTEXT, "error");
+                return super.serve(session);
+            }
+        }
+
+        if (Method.GET.equals(method)) {
+            // Get parameters of request
+            Map<String, String> params = new HashMap<>();
+            try {
+                session.parseBody(params);
+            } catch (IOException | ResponseException e) {
+                e.printStackTrace();
+            }
+
+            // Delegate request to correct class
+            String requestHandlerName = session.getUri();
+            requestHandlerName = requestHandlerName.substring(1);
+            RequestHandler requestHandler = requestHandlers.get(requestHandlerName);
+
+            // If the request handler was specified, do the default stuff
+            if (requestHandler != null) {
+                return requestHandler.GET(session);
+            } else {
+                return super.serve(session);
             }
         }
 

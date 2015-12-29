@@ -1,5 +1,6 @@
 package org.intellimate.izou.addon.izouwebconfig;
 
+import org.intellimate.izou.addon.izouwebconfig.webserver.WebServer;
 import org.intellimate.izou.sdk.Context;
 import org.intellimate.izou.sdk.activator.Activator;
 import org.intellimate.izou.sdk.util.ResourceUser;
