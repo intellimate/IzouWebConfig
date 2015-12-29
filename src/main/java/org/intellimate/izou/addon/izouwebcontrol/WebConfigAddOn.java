@@ -1,4 +1,4 @@
-package org.intellimate.izou.addon.izouwebconfig;
+package org.intellimate.izou.addon.izouwebcontrol;
 
 import org.intellimate.izou.activator.ActivatorModel;
 import org.intellimate.izou.events.EventsControllerModel;

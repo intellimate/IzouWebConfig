@@ -4,20 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.intellimate.izou.addon.izouwebconfig</groupId>
-    <artifactId>izouwebconfig</artifactId>
+    <groupId>org.intellimate.izou.addon.izouwebcontrol</groupId>
+    <artifactId>izouwebcontrol</artifactId>
     <packaging>jar</packaging>
     <version>0.1</version>
-    <name>Izou Web Config</name>
+    <name>Izou Web Control</name>
 
     <properties>
-        <plugin.id>org.intellimate.izou.addon.izouwebconfig</plugin.id>
-        <plugin.class>org.intellimate.izou.addon.izouwebconfig.ZipFileManager</plugin.class>
+        <plugin.id>org.intellimate.izou.addon.izouwebcontrol</plugin.id>
+        <plugin.class>org.intellimate.izou.addon.izouwebcontrol.ZipFileManager</plugin.class>
         <plugin.version>0.1</plugin.version>
         <plugin.provider>Julian Brendl</plugin.provider>
         <plugin.dependencies />
 
-        <repo.name>izouwebconfig</repo.name>
+        <repo.name>izouwebcontrol</repo.name>
         <repo.owner>intellimate</repo.owner>
         <!-- github server corresponds to entry in ~/.m2/settings.xml -->
         <github.global.server>github</github.global.server>

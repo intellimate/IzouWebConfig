@@ -1,4 +1,4 @@
-package org.intellimate.izou.addon.izouwebconfig.webserver;
+package org.intellimate.izou.addon.izouwebcontrol.webserver;
 
 import fi.iki.elonen.NanoHTTPD;
 import fi.iki.elonen.NanoHTTPD.IHTTPSession;

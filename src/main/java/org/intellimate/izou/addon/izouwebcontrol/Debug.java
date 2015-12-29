@@ -1,4 +1,4 @@
-package org.intellimate.izou.addon.izouwebconfig;
+package org.intellimate.izou.addon.izouwebcontrol;
 
 import org.intellimate.izou.addon.AddOnModel;
 import org.intellimate.izou.main.Main;
