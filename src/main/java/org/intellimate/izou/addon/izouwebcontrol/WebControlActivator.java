@@ -9,15 +9,15 @@ import org.intellimate.izou.sdk.util.ResourceUser;
  * The activator starts the addOn. The addOn will run like a daemon in linux in the background of Izou and provide an
  * easy to use interface via a web server to configure izou.
  */
-public class WebConfigActivator extends Activator implements ResourceUser {
+public class WebControlActivator extends Activator implements ResourceUser {
     private WebServer server;
 
     /**
      * Creates a new WebConfigActivator
      * @param context the context of the addOn, for more info look at the context classes within izou and the SDKs
      */
-    public WebConfigActivator(Context context) {
-        super(context, WebConfigActivator.class.getCanonicalName());
+    public WebControlActivator(Context context) {
+        super(context, WebControlActivator.class.getCanonicalName());
     }
 
     /**

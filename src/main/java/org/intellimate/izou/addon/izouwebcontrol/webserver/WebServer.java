@@ -16,7 +16,7 @@ public class WebServer extends SimpleWebServer {
     public static final String HOSTNAME = "192.168.1.15";
     public static final int PORT = 7777;
     public static String HOST_PATH;
-    private static String HOST_DEV_PATH = "./src/main/resources/html/";
+    private static String HOST_DEV_PATH = "./src/main/html/";
 
     private HashMap<String, RequestHandler> requestHandlers;
     private Context context;
