@@ -9,8 +9,6 @@ import org.intellimate.izou.sdk.addon.AddOn;
 import org.intellimate.izou.sdk.contentgenerator.ContentGenerator;
 import ro.fortsoft.pf4j.Extension;
 
-import java.io.File;
-
 /**
  * Example addOn for Izou, PLEASE DELETE THIS PACKAGE ON FINAL DISTRIBUTION. It is only meant as a model for
  * how addOns are structured. It is not meant to be included in the final addOn. 
@@ -34,9 +32,12 @@ public class WebControlAddOn extends AddOn {
      */
     @Override
     public void prepare() {
-        WebServer.HOST_PATH = getContext().getFiles().getLibLocation() +
-                getContext().getAddOn().getPlugin().getPluginPath() + File.separator + "classes" + File.separator
-                + "html" + File.separator;
+//        String hostPath = getContext().getFiles().getLibLocation() +
+//                getContext().getAddOn().getPlugin().getPluginPath() + File.separator + "classes" + File.separator
+//                + "html" + File.separator;
+//
+//        WebServer.setHOST_PATH(hostPath);
+        WebServer.setHOSTNAME(System.getProperty("ip-address"));
     }
 
     /**

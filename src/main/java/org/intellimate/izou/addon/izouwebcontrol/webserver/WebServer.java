@@ -13,10 +13,13 @@ import java.util.Map;
  * This class starts the webserver
  */
 public class WebServer extends SimpleWebServer {
-    public static final String HOSTNAME = "192.168.1.15";
+    private static String HOSTNAME;
+    private static boolean HOSTNAME_SET = false;
+    private static String HOST_PATH;
+    private static boolean HOST_PATH_SET = false;
     public static final int PORT = 7777;
-    public static String HOST_PATH;
     private static String HOST_DEV_PATH = "./src/main/html/";
+
 
     private HashMap<String, RequestHandler> requestHandlers;
     private Context context;
@@ -97,5 +100,29 @@ public class WebServer extends SimpleWebServer {
         }
 
         return super.serve(session);
+    }
+
+    /**
+     * This is a one time setter for the hostname, which makes hostname effectively final
+     *
+     * @param hostname the location where the server should host the website (usually your own ip)
+     */
+    public static void setHOSTNAME(String hostname) {
+        if (!HOSTNAME_SET) {
+            HOSTNAME_SET = true;
+            HOSTNAME = hostname;
+        }
+    }
+
+    /**
+     * This is a one time setter for the hosting path, which makes the hosting path effectively final
+     *
+     * @param hostPath the location of the folder that the server should serve (where the index.html file is located)
+     */
+    public static void setHOST_PATH(String hostPath) {
+        if (!HOST_PATH_SET) {
+            HOST_PATH_SET = true;
+            HOSTNAME = hostPath;
+        }
     }
 }
