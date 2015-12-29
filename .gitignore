@@ -10,7 +10,7 @@ build
 /resources
 /system
 node_modules
-
+bower_components
 
 # ---------------
 # Project Files
