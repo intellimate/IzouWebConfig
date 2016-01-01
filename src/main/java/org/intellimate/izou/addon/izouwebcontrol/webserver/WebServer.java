@@ -35,8 +35,8 @@ public class WebServer extends SimpleWebServer {
         this.context = context;
 
         requestHandlers = new HashMap<>();
-        TestHandler testHandler = new TestHandler();
-        requestHandlers.put(testHandler.getClassName(), testHandler);
+        IzouDashboardHandler izouDashboardHandler = new IzouDashboardHandler(context);
+        requestHandlers.put(izouDashboardHandler.getClassName(), izouDashboardHandler);
 
         try {
             start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);

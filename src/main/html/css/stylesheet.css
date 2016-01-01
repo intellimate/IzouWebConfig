@@ -77,3 +77,10 @@ body {
 .side-nav>li>ul>li>a:hover {
     color: #fff;
 }
+
+/* Content */
+#test {
+    width: 500px;
+    height: 500px;
+    border: 10px solid red;
+}
