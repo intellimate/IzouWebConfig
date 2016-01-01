@@ -15,7 +15,7 @@ function systemCheck() {
             $("#inline-wrapper").append(div);
             div.style.backgroundColor = data.color;
 
-            setTimeout(systemCheck, 3000);
+            setTimeout(systemCheck, 500);
         },
         error: function(error) {
             console.log("An error occurred");
