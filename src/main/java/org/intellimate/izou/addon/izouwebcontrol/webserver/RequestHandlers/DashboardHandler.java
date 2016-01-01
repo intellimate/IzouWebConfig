@@ -1,8 +1,9 @@
-package org.intellimate.izou.addon.izouwebcontrol.webserver;
+package org.intellimate.izou.addon.izouwebcontrol.webserver.RequestHandlers;
 
 import fi.iki.elonen.NanoHTTPD;
 import fi.iki.elonen.NanoHTTPD.IHTTPSession;
 import fi.iki.elonen.NanoHTTPD.Response;
+import org.intellimate.izou.addon.izouwebcontrol.webserver.RequestHandler;
 import org.intellimate.izou.sdk.Context;
 
 import javax.json.Json;

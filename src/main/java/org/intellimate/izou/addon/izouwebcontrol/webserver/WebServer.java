@@ -2,6 +2,8 @@ package org.intellimate.izou.addon.izouwebcontrol.webserver;
 
 import fi.iki.elonen.NanoHTTPD;
 import fi.iki.elonen.SimpleWebServer;
+import org.intellimate.izou.addon.izouwebcontrol.webserver.RequestHandlers.DashboardHandler;
+import org.intellimate.izou.addon.izouwebcontrol.webserver.RequestHandlers.TemplateHandler;
 import org.intellimate.izou.sdk.Context;
 
 import java.io.File;
@@ -34,9 +36,12 @@ public class WebServer extends SimpleWebServer {
 
         this.context = context;
 
+        // Add all the request handlers
         requestHandlers = new HashMap<>();
         DashboardHandler dashboardHandler = new DashboardHandler(context);
         requestHandlers.put(dashboardHandler.getClassName(), dashboardHandler);
+        TemplateHandler templateHandler = new TemplateHandler(context);
+        requestHandlers.put(templateHandler.getClassName(), templateHandler);
 
         try {
             start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);

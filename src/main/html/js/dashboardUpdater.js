@@ -1,12 +1,11 @@
-function systemCheck() {
-    var data = {
-        key: "value"
-    };
-
+/**
+ * This function continuously asks Izou if there are any updates to the dashboard, and updates the dashboard if there
+ * are.
+ */
+function dashboardUpdateCheck() {
     $.ajax({
-        url: 'IzouDashboardHandler.java',
+        url: 'DashboardHandler.java',
         type: 'POST',
-        data: data,
         success: function(response) {
             var data = JSON.parse(response);
 
@@ -15,7 +14,7 @@ function systemCheck() {
             $("#inline-wrapper").append(div);
             div.style.backgroundColor = data.color;
 
-            setTimeout(systemCheck, 500);
+            setTimeout(dashboardUpdateCheck, 500);
         },
         error: function(error) {
             console.log("An error occurred");
