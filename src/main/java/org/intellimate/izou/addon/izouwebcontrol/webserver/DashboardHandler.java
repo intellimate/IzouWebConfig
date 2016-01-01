@@ -12,18 +12,18 @@ import java.util.Map;
 import static fi.iki.elonen.SimpleWebServer.newFixedLengthResponse;
 
 /**
- * The IzouDashboardHandler handles the content of the Izou Dashboard. It updates the dashboard continuously through
+ * The DashboardHandler handles the content of the Izou Dashboard. It updates the dashboard continuously through
  * short polling on the client side.
  */
-public class IzouDashboardHandler extends RequestHandler {
+public class DashboardHandler extends RequestHandler {
 
     /**
-     * Creates a new IzouDashboardHandler
+     * Creates a new DashboardHandler
      *
      * @param context the context of the addOn
      */
-    public IzouDashboardHandler(Context context) {
-        super(IzouDashboardHandler.class.getName(), context);
+    public DashboardHandler(Context context) {
+        super(DashboardHandler.class.getName(), context);
     }
 
     @Override

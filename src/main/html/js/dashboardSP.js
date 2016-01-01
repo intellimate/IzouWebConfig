@@ -1,18 +1,18 @@
 function systemCheck() {
-
-    var data = "data";
+    var data = {
+        key: "value"
+    };
 
     $.ajax({
         url: 'IzouDashboardHandler.java',
         type: 'POST',
-        //dataType: 'json',
         data: data,
         success: function(response) {
             var data = JSON.parse(response);
 
             var div = document.createElement('div');
-            div.id = 'test';
-            $("#wrapper").append(div);
+            div.className = 'test';
+            $("#inline-wrapper").append(div);
             div.style.backgroundColor = data.color;
 
             setTimeout(systemCheck, 3000);
