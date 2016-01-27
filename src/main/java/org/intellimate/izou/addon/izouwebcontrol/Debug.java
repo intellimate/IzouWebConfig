@@ -12,7 +12,7 @@ public class Debug {
     public static void main(String[] args) {
         LinkedList<AddOnModel> addOns = new LinkedList<>();
 
-        WebControlAddOn addOn = new WebControlAddOn();
+        WebControlAddOn addOn = new WebControlAddOn("./src/main/html");
         addOns.add(addOn);
 
         Main main = new Main(addOns, true);

@@ -9,6 +9,8 @@ import org.intellimate.izou.sdk.addon.AddOn;
 import org.intellimate.izou.sdk.contentgenerator.ContentGenerator;
 import ro.fortsoft.pf4j.Extension;
 
+import java.io.File;
+
 /**
  * Example addOn for Izou, PLEASE DELETE THIS PACKAGE ON FINAL DISTRIBUTION. It is only meant as a model for
  * how addOns are structured. It is not meant to be included in the final addOn. 
@@ -20,6 +22,8 @@ public class WebControlAddOn extends AddOn {
      */
     private static final String ID = WebControlAddOn.class.getCanonicalName();
 
+    private String hostPath = null;
+
     /**
      * The default constructor for AddOns
      */
@@ -27,16 +31,23 @@ public class WebControlAddOn extends AddOn {
         super(ID);
     }
 
+    public WebControlAddOn(String path) {
+        super(ID);
+        hostPath = path;
+    }
+
     /**
      * This method gets called before registering
      */
     @Override
     public void prepare() {
-//        String hostPath = getContext().getFiles().getLibLocation() +
-//                getContext().getAddOn().getPlugin().getPluginPath() + File.separator + "classes" + File.separator
-//                + "html" + File.separator;
-//
-//        WebServer.setHOST_PATH(hostPath);
+        if (hostPath != null) {
+            hostPath = getContext().getFiles().getLibLocation() +
+                    getContext().getAddOn().getPlugin().getPluginPath() + File.separator + "classes" + File.separator
+                    + "html" + File.separator;
+        }
+
+        WebServer.setHOST_PATH(hostPath);
         WebServer.setHOSTNAME(System.getProperty("ip-address"));
     }
 

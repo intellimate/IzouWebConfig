@@ -20,8 +20,6 @@ public class WebServer extends SimpleWebServer {
     private static String HOST_PATH;
     private static boolean HOST_PATH_SET = false;
     public static final int PORT = 7777;
-    private static String HOST_DEV_PATH = "./src/main/html/";
-
 
     private HashMap<String, RequestHandler> requestHandlers;
     private Context context;
@@ -32,7 +30,7 @@ public class WebServer extends SimpleWebServer {
      * @param context the context of the addOn
      */
     public WebServer(Context context) {
-        super(HOSTNAME, PORT, new File(HOST_DEV_PATH), false);
+        super(HOSTNAME, PORT, new File(HOST_PATH), false);
 
         this.context = context;
 
