@@ -41,7 +41,7 @@ public class WebControlAddOn extends AddOn {
      */
     @Override
     public void prepare() {
-        if (hostPath != null) {
+        if (hostPath == null) {
             hostPath = getContext().getFiles().getLibLocation() +
                     getContext().getAddOn().getPlugin().getPluginPath() + File.separator + "classes" + File.separator
                     + "html" + File.separator;

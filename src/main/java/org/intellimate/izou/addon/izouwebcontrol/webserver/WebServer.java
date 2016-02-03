@@ -125,7 +125,7 @@ public class WebServer extends SimpleWebServer {
     public static void setHOST_PATH(String hostPath) {
         if (!HOST_PATH_SET) {
             HOST_PATH_SET = true;
-            HOSTNAME = hostPath;
+            HOST_PATH = hostPath;
         }
     }
 }
